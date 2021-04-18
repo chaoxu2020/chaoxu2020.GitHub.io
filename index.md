@@ -5,11 +5,16 @@
 - Half-Nijigen Anime fan
 
 ### Contact Info
-- Email: chao.xu.19@ucl.ac.uk
+- Email: [chao.xu.19@ucl.ac.uk](mailto:chao.xu.19@ucl.ac.uk)
 
 ### Education
-- University College London 2019-2021 MA Linguistics (specialized in Phonetics)
-- Jinan University 2015-2019 BA Chinese Language
+## 2019-2021
+- MA in Linguistics (specialized in Phonetics)
+- University College London
+
+## 2015-2019
+- BA in Chinese Language (specialized in Linguistics)
+- Jinan University (Guangzhou, China)
 
 ## Skills
 ### Languages
@@ -22,7 +27,7 @@
 ### Programming
 - Praat Scripting
 - Python (learning)
-- R (Learning)
+- R (learning)
 
 ### Jekyll Themes
 
