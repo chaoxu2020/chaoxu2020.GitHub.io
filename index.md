@@ -1,19 +1,25 @@
-## Welcome
-### Personal Introduction
+## Something you may be curious about
+### Personal Intro
+- Born in 1997
+- Multi-lingual learner
+- Half-Nijigen Anime fan
 ### Contact Info
 - Email: chao.xu.19@ucl.ac.uk
-
 ### Education
-- University College London 2019-2021 MA Linguistics
+- University College London 2019-2021 MA Linguistics (specialized in Phonetics)
 - Jinan University 2015-2019 BA Chinese Language
 
-
-# Header 1
-## Header 2
-### Header 3
-
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+## Skills
+### Languages
+- Mandarin (native speaker)
+- English
+- Japanese
+- Korean (a little)
+- Cantonese
+### Programming
+- Praat Scripting
+- Python (learning)
+- R (Learning)
 
 ### Jekyll Themes
 
