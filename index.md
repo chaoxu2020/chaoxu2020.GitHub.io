@@ -3,8 +3,10 @@
 - Born in 1997
 - Multi-lingual learner
 - Half-Nijigen Anime fan
+
 ### Contact Info
 - Email: chao.xu.19@ucl.ac.uk
+
 ### Education
 - University College London 2019-2021 MA Linguistics (specialized in Phonetics)
 - Jinan University 2015-2019 BA Chinese Language
@@ -16,6 +18,7 @@
 - Japanese
 - Korean (a little)
 - Cantonese
+
 ### Programming
 - Praat Scripting
 - Python (learning)
