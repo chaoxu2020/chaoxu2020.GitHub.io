@@ -1,11 +1,11 @@
-## Personal Introduction
+## Welcome
+### Personal Introduction
 ### Contact Info
 - Email: chao.xu.19@ucl.ac.uk
 
 ### Education
 - University College London 2019-2021 MA Linguistics
 - Jinan University 2015-2019 BA Chinese Language
-
 
 
 # Header 1
