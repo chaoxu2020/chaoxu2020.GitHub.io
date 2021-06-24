@@ -10,10 +10,13 @@
 ## Education
 ### 2019-2021
 - MA in Linguistics (specialized in Phonetics)
+- Dissertation: Synthesizing Cantonese Speech Melody with PENTAtrainer
+- Supervisor: Prof. Yi Xu
 - University College London
 
 ### 2015-2019
 - BA in Chinese Language (specialized in Linguistics)
+- Dissertation: An Acoustic Study of Phonological Components of Jizhao Language of Wuchuan, Guangdong
 - Jinan University (Guangzhou, China)
 
 ## Skills
@@ -29,10 +32,17 @@
 - Python (learning)
 - R (learning)
 
-### Jekyll Themes
+## Internship
+### ByteDance (Shanghai, China)
+- AI-Lab Linguists (specialized in Chinese Dialect)
+- TTS dataset preparation & Management of CQC annotators
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/chaoxu2020/chaoxu2020.GitHub.io/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+### Tencent (Shenzhen, China)
+- IEG Lightspeed & Quantum Studios Linguistic Annotator
+- TTS dataset annotation
 
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+## Interests & Hobbies
+- Cooking & Eating
+- Music & Piano, used to be in school choir
+- Animation (Konan & Doraemon daisuki!!)
+- Onmyoji (NetEase) player
