@@ -29,7 +29,7 @@
 
 ### Programming
 - Praat Scripting
-- Python (learning)
+- Python
 - R (learning)
 - Perl (learning)
 
