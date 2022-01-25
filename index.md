@@ -23,22 +23,26 @@
 ### Languages
 - Mandarin (native speaker)
 - English
-- Japanese
-- Korean (a little)
-- Cantonese
+- Japanese (N1)
+- Korean (learning thru Duolingo)
+- Cantonese (a little)
 
 ### Programming
 - Praat Scripting
 - Python (learning)
 - R (learning)
+- Perl (learning)
 
-## Internship
-### ByteDance (Shanghai, China)
+## Work Experience
+### Cerence Inc. (Shanghai, China)
+- TTS Product R&D Engineer
+
+### ByteDance Intern (Shanghai, China)
 - AI-Lab Linguists (specialized in Chinese Dialect)
 - TTS dataset preparation & Management of CQC annotators
 
-### Tencent (Shenzhen, China)
-- IEG Lightspeed & Quantum Studios Linguistic Annotator
+### Tencent Intern (Shenzhen, China)
+- IEG Lightspeed & Quantum Studios TTS Linguist
 - TTS dataset annotation
 
 ## Interests & Hobbies
