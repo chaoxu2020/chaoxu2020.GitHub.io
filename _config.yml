@@ -1,3 +1,5 @@
 theme: jekyll-theme-minimal
 title: Chao Xu, Vincent
 description: The personal website for Chao Xu
+logo: /assets/img/avatar.png
+show_downloads: true
