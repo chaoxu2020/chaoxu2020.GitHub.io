@@ -1,52 +1,57 @@
-## Something you may be curious about
-### Personal Intro
-- Born in 1997
-- Multi-lingual learner
-- Half-Nijigen Anime fan
+# Resume
+> *I'm interested in **Phonetics**, **Phonology** and also new technologies related to Linguistics such as **Text-to-Speech**. I have got much experience in processing audio and text data for these new techs with my solid knowledge of Linguistics. For now I'm studying more in math and algorithm, which used to be a little challeging to me. Hope to devote myself to a more open AI world and make more contribution to it. If you are an **AI Researcher** and seeking experts for **data collection & processing**, feel free to get in touch with me!*
 
-### Contact Info
-- Email: [chao.xu.19@ucl.ac.uk](mailto:chao.xu.19@ucl.ac.uk)
+## Personal Info
+- A polyglot born in 1997
+- Current Base📍 : Shenzhen, Guangdong, China
+- Email 📧 : [chao.xu.19@ucl.ac.uk](mailto:chao.xu.19@ucl.ac.uk)
 
 ## Education
-### 2019-2021
-- MA in Linguistics (specialized in Phonetics)
-- Dissertation: Synthesizing Cantonese Speech Melody with PENTAtrainer
-- Supervisor: Prof. Yi Xu
-- University College London
+### DeepLearning.AI, Coursera (2024.08 &ndash; 2024.10)
+- Mathematics for Machine Learning and Data Science Specilization
+- Related courses: Linear Algebra, Calculus, Probability & Statistics
 
-### 2015-2019
-- BA in Chinese Language (specialized in Linguistics)
+### University College London, UK (2019.09 &ndash; 2020.12)
+- ***MA*** in Linguistics with Distinction (specialized in Experimental Phonetics and TTS)
+- Dissertation: Synthesizing Cantonese Speech Melody with PENTAtrainer (Supervisor: Prof. Yi Xu)
+
+### Jinan University, Guangzhou (2015.09 &ndash; 2019.06)
+- ***BA*** in Chinese Language (GPA: 90.08 / 100)
 - Dissertation: An Acoustic Study of Phonological Components of Jizhao Language of Wuchuan, Guangdong
-- Jinan University (Guangzhou, China)
+
+## Work Experience
+### Cerence Inc., Shanghai (2021.08 &ndash; 2024.08)
+- TTS Research Engineer
+
+### ByteDance, Shanghai (2021.01 &ndash; 2021.05)
+- AI-Lab TTS Intern (specialized in Chinese Dialect)
+- Participated projects:\
+CapCut AI voice of Chinese Northern Dialect (东北老铁)\
+CapCut AI voice of Chinese Taiwan Mandarin (台湾女生)
+
+### Tencent, Shenzhen (2020.09 &ndash; 2020.12)
+- IEG Lightspeed & Quantum Studios TTS Intern
+
+## Projects
+- Embedded Chatting Style TTS
+- Cantonese Female TTS Voice
+- Flagship Female TTS Voice (Multi-emotional)
 
 ## Skills
-### Languages
-- Mandarin (native speaker)
-- English
-- Japanese (N1)
-- Korean (learning thru Duolingo)
-- Cantonese (a little)
-
 ### Programming
 - Praat Scripting
 - Python
-- R (learning)
-- Perl (learning)
 
-## Work Experience
-### Cerence Inc. (Shanghai, China)
-- TTS Product R&D Engineer
+### Basic Software
+- Git
+- Docker
+- Label Studio
 
-### ByteDance Intern (Shanghai, China)
-- AI-Lab Linguists (specialized in Chinese Dialect)
-- TTS dataset preparation & Management of CQC annotators
+### Languages
+- Mandarin (native speaker)
+- Cantonese (intermediate)
+- English
+- Japanese (JLPT N1)
+- Korean (Duolingo)
+- French (learning)
 
-### Tencent Intern (Shenzhen, China)
-- IEG Lightspeed & Quantum Studios TTS Linguist
-- TTS dataset annotation
-
-## Interests & Hobbies
-- Cooking & Eating
-- Music & Piano, used to be in school choir
-- Animation (Konan & Doraemon daisuki!!)
-- Onmyoji (NetEase) player
