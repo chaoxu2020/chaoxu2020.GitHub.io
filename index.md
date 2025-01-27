@@ -22,20 +22,35 @@
 ## Work Experience
 ### Cerence Inc., Shanghai (2021.08 &ndash; 2024.08)
 - TTS Research Engineer
+- Participated projects:\
+***Embedded Chatting Style TTS Voice***\
+***Cantonese Female TTS Voice***\
+***Multi-emotional Female TTS Voice***
 
 ### ByteDance, Shanghai (2021.01 &ndash; 2021.05)
 - AI-Lab TTS Intern (specialized in Chinese Dialect)
 - Participated projects:\
-CapCut AI voice of Chinese Northern Dialect (东北老铁)\
-CapCut AI voice of Chinese Taiwan Mandarin (台湾女生)
+***CapCut AI voice of Chinese Northern Dialect*** (东北老铁)\
+***CapCut AI voice of Chinese Taiwan Mandarin*** (台湾女生)
 
 ### Tencent, Shenzhen (2020.09 &ndash; 2020.12)
 - IEG Lightspeed & Quantum Studios TTS Intern
 
-## Projects
-- Embedded Chatting Style TTS
-- Cantonese Female TTS Voice
-- Flagship Female TTS Voice (Multi-emotional)
+## Academic Experience
+### National Social Science Fund of China (NSSFC)
+- [***Research on the Linguistic Ecology of Countries Surrounding the South China Sea and the Construction of a Language Resource Database***](http://www.nopss.gov.cn/n1/2018/1203/c410237-30439486.html) \
+(环南海国家语⾔⽣态研究及语⾔资源库建设)
+
+### Research for Humanities & Social Sciences in Guangdong Province
+- ***Research on the Assessment of the Existence Status and Prediction of Extinction Trends of Endangered Languages*** (濒危语⾔的⽣存状态评估与消亡趋势预测研究)
+
+### Innovation and Entrepreneurship Training Program for College Students in Guangdong Province
+- ***The Diachronic Phonological Evolution and Influence of Japanese Kanji*** (⽇语汉字的历时⾳韵演变及影响)
+
+### Language Investigation
+- Khmer language IPA transcription (*Phnom Penh*, *Cambodia*)
+- *She*(畲) language (*Boluo*, *Huizhou*, *Guangdong*)
+- *Jizhao*(吉兆) language (*Jizhao*, *Zhanjiang*, *Guangdong*)
 
 ## Skills
 ### Programming
