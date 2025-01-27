@@ -38,15 +38,13 @@
 
 ## Academic Experience
 ### National Social Science Fund of China (NSSFC)
-- [***Research on the Linguistic Ecology of Countries Surrounding the South China Sea and the Construction of a Language Resource Database***](http://www.nopss.gov.cn/n1/2018/1203/c410237-30439486.html) \
-(环南海国家语⾔⽣态研究及语⾔资源库建设)
+- [***Research on the Linguistic Ecology of Countries Surrounding the South China Sea and the Construction of a Language Resource Database***](http://www.nopss.gov.cn/n1/2018/1203/c410237-30439486.html) (环南海国家语言生态研究及语言资源库建设)
 
 ### Research for Humanities & Social Sciences in Guangdong Province
-- ***Research on the Assessment of the Existence Status and Prediction of Extinction Trends of Endangered Languages*** (濒危语⾔的⽣存状态评估与消亡趋势预测研究)
+- ***Research on the Assessment of the Existence Status and Prediction of Extinction Trends of Endangered Languages*** (濒危语言的生存状态评估与消亡趋势预测研究)
 
 ### Innovation and Entrepreneurship Training Program for College Students in Guangdong Province
-- ***The Diachronic Phonological Evolution and Influence of Japanese Kanji*** (⽇语汉字的历时⾳韵演变及影响)
-
+- ***The Diachronic Phonological Evolution and Influence of Japanese Kanji*** (日语汉字的历时音韵演变及影响)
 ### Language Investigation
 - Khmer language IPA transcription (*Phnom Penh*, *Cambodia*)
 - *She*(畲) language (*Boluo*, *Huizhou*, *Guangdong*)
