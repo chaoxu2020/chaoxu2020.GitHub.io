@@ -58,7 +58,7 @@
       launcher: "导入 JSON 审核",
       title: "导入已标注结果进行审核",
       description:
-        "选择此前导出的 ASR 与 NER JSON（可单选，也可同时选择两份），再选择对应音频。导入后会恢复文本和实体，并将所有任务设为待审核。",
+        "选择此前导出的 ASR 与 NER JSON（可单选，也可同时选择两份），再选择对应音频。无问题的任务会自动标记为已完成，只需修正有实体定位问题的条目，然后直接导出审核结果。",
       jsonLabel: "1. 选择标注结果 JSON",
       jsonHint:
         "支持 asr_reference_text.json、ner_entity_info.json 或包含 tasks 的合并文件",
@@ -100,12 +100,18 @@
       correctionOriginal: "原实体",
       correctionAsr: "当前 ASR",
       correctionResolve: "我已核对并完成修正",
+      exportResults: "导出审核结果",
+      exportLocked: "导出审核结果（待修正完成后可用）",
+      exportHint: "导出当前全部任务的 ASR 与 NER JSON，无需逐条点击完成",
+      exportLockedHint: "请先完成所有待修正任务的实体核对",
+      exportDone: "已导出 asr_reference_text.json 和 ner_entity_info.json",
+      exportReady: "待修正任务已全部核对，可直接导出审核结果。",
     },
     ja: {
       launcher: "JSON結果をレビュー",
       title: "注釈済みJSONを読み込んでレビュー",
       description:
-        "出力済みのASR・NER JSON（1つまたは2つ）と対応音声を選択します。テキストとエンティティを復元し、全タスクをレビュー待ちとして開きます。",
+        "出力済みのASR・NER JSON（1つまたは2つ）と対応音声を選択します。問題のないタスクは自動的に完了扱いとなり、エンティティ位置の要修正分だけ確認してから結果を出力できます。",
       jsonLabel: "1. 注釈結果JSONを選択",
       jsonHint:
         "asr_reference_text.json、ner_entity_info.json、またはtasksを含む統合JSONに対応",
@@ -154,6 +160,15 @@
       correctionOriginal: "元のエンティティ",
       correctionAsr: "現在のASR",
       correctionResolve: "確認・修正が完了しました",
+      exportResults: "レビュー結果を出力",
+      exportLocked: "レビュー結果を出力（要修正完了後）",
+      exportHint:
+        "全タスクのASR・NER JSONを出力します。1件ずつ完了ボタンを押す必要はありません",
+      exportLockedHint:
+        "要修正タスクのエンティティ確認をすべて完了してください",
+      exportDone:
+        "asr_reference_text.jsonとner_entity_info.jsonを出力しました",
+      exportReady: "要修正タスクの確認が完了しました。結果を出力できます。",
     },
   };
 
@@ -174,6 +189,8 @@
   let resolvedCorrectionIds = new Set();
   let correctionRenderScheduled = false;
   let lastCorrectionRenderKey = "";
+  let reviewSession = null;
+  let exportButton = null;
 
   function getLocale() {
     return window.localStorage.getItem(LANGUAGE_KEY) === "ja" ||
@@ -600,8 +617,10 @@
     input.dispatchEvent(new Event("change", { bubbles: true }));
   }
 
-  function storeDrafts(tasks, hash) {
+  function storeDrafts(tasks, hash, issueSegmentIds) {
+    const issueSet = new Set(issueSegmentIds || []);
     tasks.forEach((task) => {
+      const needsCorrection = issueSet.has(task.segmentId);
       window.localStorage.setItem(
         `${STORAGE_PREFIX}${hash}:${task.segmentId}`,
         JSON.stringify({
@@ -610,11 +629,123 @@
           asrConfirmed: true,
           entities: task.entities,
           noEntity: task.noEntity,
-          warningsAcknowledged: false,
-          status: "in_progress",
+          warningsAcknowledged: !needsCorrection,
+          status: needsCorrection ? "in_progress" : "completed",
         }),
       );
     });
+  }
+
+  function readDraft(hash, segmentId) {
+    try {
+      return JSON.parse(
+        window.localStorage.getItem(`${STORAGE_PREFIX}${hash}:${segmentId}`) ||
+          "null",
+      );
+    } catch {
+      return null;
+    }
+  }
+
+  function downloadJson(data, filename) {
+    const blob = new Blob([JSON.stringify(data, null, 2)], {
+      type: "application/json;charset=utf-8",
+    });
+    const url = URL.createObjectURL(blob);
+    const anchor = document.createElement("a");
+    anchor.href = url;
+    anchor.download = filename;
+    document.body.appendChild(anchor);
+    anchor.click();
+    anchor.remove();
+    window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+  }
+
+  function canExportReview() {
+    return Boolean(reviewSession) && unresolvedCorrectionIds().length === 0;
+  }
+
+  function exportReviewResults() {
+    if (!reviewSession || !canExportReview()) return;
+    const { hash, tasks, dataset } = reviewSession;
+    const exportTasks = tasks.map((task) => {
+      const draft = readDraft(hash, task.segmentId) || {};
+      const asrText =
+        typeof draft.asrText === "string" && draft.asrText.length > 0
+          ? draft.asrText
+          : task.asrText;
+      const entities = Array.isArray(draft.entities)
+        ? draft.entities
+        : task.entities;
+      const noEntity = Boolean(draft.noEntity);
+      return { task, asrText, entities, noEntity };
+    });
+    const exportedAt = new Date().toISOString();
+    downloadJson(
+      {
+        schema_version: "2.0",
+        exported_at: exportedAt,
+        dataset,
+        task_count: tasks.length,
+        tasks: exportTasks.map(({ task, asrText }) => ({
+          segment_id: task.segmentId,
+          audio_file: task.audioFile,
+          original_reference_text: task.originalText,
+          asr_reference_text: asrText,
+          metadata: task.metadata,
+        })),
+      },
+      "asr_reference_text.json",
+    );
+    window.setTimeout(() => {
+      downloadJson(
+        {
+          schema_version: "2.0",
+          exported_at: exportedAt,
+          dataset,
+          task_count: tasks.length,
+          tasks: exportTasks.map(({ task, asrText, entities, noEntity }) => ({
+            segment_id: task.segmentId,
+            audio_file: task.audioFile,
+            asr_reference_text: asrText,
+            entities: noEntity
+              ? []
+              : entities.map((entity) => ({
+                  ner_entity_text: entity.text,
+                  entity_type: entity.entityType,
+                  text_start: entity.start,
+                  text_end: entity.end,
+                })),
+            metadata: task.metadata,
+          })),
+        },
+        "ner_entity_info.json",
+      );
+    }, 120);
+    showToast(copy("exportDone"));
+  }
+
+  function ensureExportButton() {
+    if (exportButton || !launcher) return;
+    exportButton = document.createElement("button");
+    exportButton.type = "button";
+    exportButton.className = "review-export-button";
+    exportButton.addEventListener("click", exportReviewResults);
+    launcher.insertAdjacentElement("beforebegin", exportButton);
+  }
+
+  function updateExportButton() {
+    if (!reviewSession) {
+      exportButton?.remove();
+      exportButton = null;
+      return;
+    }
+    ensureExportButton();
+    const ready = canExportReview();
+    exportButton.hidden = false;
+    exportButton.disabled = !ready;
+    exportButton.textContent = copy(ready ? "exportResults" : "exportLocked");
+    exportButton.title = copy(ready ? "exportHint" : "exportLockedHint");
   }
 
   function currentSegmentId() {
@@ -680,9 +811,27 @@
   function markCorrectionResolved(segmentId) {
     if (!segmentId || !correctionIssues.has(segmentId)) return;
     resolvedCorrectionIds.add(segmentId);
+    if (correctionHash) {
+      const key = `${STORAGE_PREFIX}${correctionHash}:${segmentId}`;
+      try {
+        const draft = JSON.parse(window.localStorage.getItem(key) || "{}");
+        draft.status = "completed";
+        draft.warningsAcknowledged = true;
+        if (!draft.confirmedAsrText && draft.asrText) {
+          draft.confirmedAsrText = draft.asrText;
+          draft.asrConfirmed = true;
+        }
+        window.localStorage.setItem(key, JSON.stringify(draft));
+      } catch {
+        // Ignore malformed draft entries.
+      }
+    }
     persistCorrectionState();
     lastCorrectionRenderKey = "";
     scheduleCorrectionRender();
+    if (canExportReview()) {
+      showToast(copy("exportReady"));
+    }
   }
 
   function scheduleCorrectionRender() {
@@ -726,6 +875,7 @@
     lastCorrectionRenderKey = renderKey;
     correctionPanel.hidden = unresolvedIds.length === 0;
     correctionPanel.replaceChildren();
+    updateExportButton();
     if (unresolvedIds.length === 0) return;
 
     const header = document.createElement("header");
@@ -754,6 +904,7 @@
     });
 
     correctionPanel.append(header, description, taskList);
+    updateExportButton();
     if (!currentNeedsCorrection) return;
 
     const issueList = document.createElement("div");
@@ -825,7 +976,11 @@
       const tsvFile = new File([rawTsv], "segments.tsv", {
         type: "text/tab-separated-values;charset=utf-8",
       });
-      storeDrafts(tasks, hash);
+      const issueSegmentIds = [
+        ...new Set(issues.map((issue) => issue.segmentId)),
+      ];
+      storeDrafts(tasks, hash, issueSegmentIds);
+      reviewSession = { hash, tasks, dataset: "segments.tsv" };
       activateCorrections(issues, hash);
       originalImport.open = true;
       assignFiles(tsvInput, [tsvFile]);
@@ -854,6 +1009,7 @@
           }),
         );
         scheduleCorrectionRender();
+        updateExportButton();
       }, 180);
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
@@ -914,6 +1070,7 @@
     updateCounts();
     lastCorrectionRenderKey = "";
     scheduleCorrectionRender();
+    updateExportButton();
   }
 
   function openDialog() {
